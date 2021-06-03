@@ -4,6 +4,8 @@ data = [];
 let list = document.querySelector('.list');
 let complete_list = document.querySelector('.complete_list');
 let main_btn = document.querySelector('.main_list');
+const rest = document.querySelector('.restbox')
+const clear = document.querySelector('.clear')
 
 
 
@@ -12,21 +14,26 @@ let text_content = document.querySelector('.text');
 
 
 save.addEventListener('click', function () {
+    if(text_content.value == ''){        
+        return;
+    }
     da = {};
     da.content = text_content.value;
-    da.complete = 'notyet';
+    da.complete = '待完成';
     data.push(da);
+    
+    rest_item();
     render();
     text_content.value = '';
 })
 
 // 新增代辦事項
-function render() {
+function render() {    
     str = ''
     data.forEach(function (item, index) {
         let con = `
     <li>
-        <input type="checkbox" class="check">
+        <input type="checkbox" data-num="${index}" class="check">
             <p class="todo">${item.content}</p>
         <input type="button" data-num="${index}"class="delete" value="✕">
     </li>`;
@@ -35,18 +42,59 @@ function render() {
     list.innerHTML = str;
 }
 
-// 刪除代辦事項
-list.addEventListener('click', function (e) {
-
-    let checka = document.querySelector('.check');
-    if (e.target.getAttribute('class') == 'check'){
-        checka.setAttribute('class', 'llli')
-        console.log('sdfsd');
+// 點選事件
+main_btn.addEventListener('click', function (e) {
+    let num = e.target.getAttribute('data-num');
+    // 打勾變成已完成 在勾一次變待完成
+    if (e.target.getAttribute('class') == 'check'){  
+        if (data[num].complete == '已完成') {
+            data[num].complete = '待完成'; 
+        }else{
+            data[num].complete = '已完成'; 
+        }
+    }else if (e.target.getAttribute('class') == 'delete') {
+        // 刪除事項
+        console.log(num);
+        data.splice(num,1);
+        render()
     }
-    if (e.target.getAttribute('class') == 'delete') {
-        let num = e.target.getAttribute('data-num');
-        data.splice(num, 1);
-    }
+    let strr = '';
+    data.forEach(function(item,index){       
+        if(e.target.value == '全部'){
+            strr += `<li>
+            <input type="checkbox" data-num="${index}" class="check">
+                <p class="todo">${item.content}</p>
+            <input type="button" data-num="${index}"class="delete" value="✕">
+                </li>`;
+        }       
+        if(e.target.value == item.complete){
+            strr += `<li>
+            <input type="checkbox" data-num="${index}" class="check">
+                <p class="todo">${item.content}</p>
+            <input type="button" data-num="${index}"class="delete" value="✕">
+                </li>`;
+        }
 
-    render();
+    })
+    if (e.target.value == '已完成') {
+        list.innerHTML = strr
+    }else if (e.target.value == '待完成') {
+        list.innerHTML = strr
+    }else if (e.target.value == '全部') {
+        list.innerHTML = strr
+    }
+    
+    rest_item()
 })
+
+
+// 待完成項目
+function rest_item(){
+    let x = 0;
+    data.forEach(function(item,index){
+        if(item.complete == '待完成')
+        x += 1
+    })
+    rest.innerHTML = `<p class="rest">${x}個待完成項目</p>`
+}
+
