@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   margin: 0;
   padding: 0;
@@ -99,6 +100,7 @@ body {
   padding: 0;
   margin: 0;
   list-style: none;
+  background-color: #fff;
 }
 
 .container .main_list .list li:hover .delete {
@@ -122,8 +124,6 @@ body {
   font-size: 16px;
   color: #333333;
   letter-spacing: 0.62px;
-  padding: 16px 0;
-  margin: 0;
 }
 
 .container .main_list .list li .delete {
@@ -142,6 +142,7 @@ body {
   font-size: 16px;
   font-weight: 600;
   padding: 3px;
+  margin-bottom: 10px;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -218,5 +219,69 @@ body {
       -ms-flex: 1;
           flex: 1;
   border-radius: 5px;
+}
+
+input[type='checkbox'] {
+  display: none;
+}
+
+input[type='checkbox'] + label {
+  /*設定選項與選項之間的距離*/
+  margin: 0 0px;
+  border-bottom: 3px solid black;
+}
+
+input[type='checkbox'] + label::before {
+  content: "";
+  font-size: 30px;
+  float: left;
+  /*設定選項樣式的位置*/
+  width: 20px;
+  /*設定選項樣式的寬高*/
+  height: 20px;
+  background-color: #fff;
+  border: 1px solid #333333;
+  /*設定選項樣式的邊框*/
+  border-radius: 5px;
+  /*設定選項樣式為圓圈*/
+  margin-right: 20px;
+  /*設定圓圈與文字之間的距離*/
+  margin-top: 3px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+input[type='checkbox']:checked + label::before {
+  position: relative;
+  top: -10px;
+  content: "✔";
+  color: #FFD370;
+  border: none;
+  background-clip: content-box;
+}
+
+.todo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-bottom: 10px;
+  cursor: pointer;
+  margin-left: 30px;
+  width: 100%;
 }
 /*# sourceMappingURL=all.css.map */

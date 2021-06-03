@@ -32,11 +32,13 @@ function render() {
     str = ''
     data.forEach(function (item, index) {
         let con = `
-    <li>
-        <input type="checkbox" data-num="${index}" class="check">
-            <p class="todo">${item.content}</p>
-        <input type="button" data-num="${index}"class="delete" value="✕">
-    </li>`;
+        <li>
+        <label>
+          <input type="checkbox" data-num="${index}" class="check" id="${index}">
+          <label class="todo" for="${index}">${item.content}</label>
+          <input type="button" data-num="${index}"class="delete" value="✕">
+        </label>
+      </li>`;
         str += con;
     })
     list.innerHTML = str;
@@ -44,6 +46,7 @@ function render() {
 
 // 點選事件
 main_btn.addEventListener('click', function (e) {
+    console.log(e.target);
     let num = e.target.getAttribute('data-num');
     // 打勾變成已完成 在勾一次變待完成
     if (e.target.getAttribute('class') == 'check'){  
@@ -62,17 +65,21 @@ main_btn.addEventListener('click', function (e) {
     data.forEach(function(item,index){       
         if(e.target.value == '全部'){
             strr += `<li>
-            <input type="checkbox" data-num="${index}" class="check">
-                <p class="todo">${item.content}</p>
-            <input type="button" data-num="${index}"class="delete" value="✕">
-                </li>`;
+            <label>
+              <input type="checkbox" data-num="${index}" class="check" id="${index}">
+              <label class="todo" for="${index}">${item.content}</label>
+              <input type="button" data-num="${index}"class="delete" value="✕">
+            </label>
+          </li>`;
         }       
         if(e.target.value == item.complete){
             strr += `<li>
-            <input type="checkbox" data-num="${index}" class="check">
-                <p class="todo">${item.content}</p>
-            <input type="button" data-num="${index}"class="delete" value="✕">
-                </li>`;
+            <label>
+              <input type="checkbox" data-num="${index}" class="check" id="${index}">
+              <label class="todo" for="${index}">${item.content}</label>
+              <input type="button" data-num="${index}"class="delete" value="✕">
+            </label>
+          </li>`;
         }
 
     })
