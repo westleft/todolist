@@ -284,4 +284,8 @@ label {
   margin-left: 30px;
   width: 100%;
 }
+
+.decoration {
+  text-decoration: line-through;
+}
 /*# sourceMappingURL=all.css.map */

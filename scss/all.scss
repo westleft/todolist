@@ -12,7 +12,6 @@ $black: #333333;
     // border: solid 1px;
 }
 html {
-
     margin: 0;
     padding: 0;    
 }
@@ -197,4 +196,8 @@ label {
     cursor: pointer;
     margin-left: 30px;
     width: 100%;
+}
+
+.decoration {
+    text-decoration:line-through
 }
