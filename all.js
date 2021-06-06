@@ -6,9 +6,18 @@ let save = document.querySelector('.save');
 let text_content = document.querySelector('.text');
 let clear = document.querySelector('.clear')
 
+//建立todo清單(按enter)
+text_content.addEventListener('keydown', function (e) {
+    if (e.keyCode == 13) {
+        addtodo()
+    }
+});
+
+//建立todo清單(按按鈕)
+save.addEventListener('click', addtodo)
 
 //建立todo清單
-save.addEventListener('click', function(){
+function addtodo() {
     //建立li,裝所有東西的清單
     const todo_li = document.createElement('li');
     todo_li.innerText = '';
@@ -48,10 +57,10 @@ save.addEventListener('click', function(){
 
     //待完成項目
     rest_item()
-})
+}
 
 //刪除及完成事件
-list.addEventListener('click', function(e){
+list.addEventListener('click', function (e) {
     item = e.target;
 
     //點選刪除按鈕
@@ -61,6 +70,7 @@ list.addEventListener('click', function(e){
         // 先執行完CSS才刪除
         todo.addEventListener('transitionend', function () {
             todo.remove()
+            rest_item()
         })
     }
 
@@ -103,10 +113,10 @@ main_btn.addEventListener('click', function (e) {
 clear.addEventListener('click', function (e) {
     const todos = list.childNodes;
 
-    todos.forEach(function(item,index){
+    todos.forEach(function (item, index) {
         if (todos[index].classList.contains('decoration')) {
             todos[index].style.display = 'none';
-        } 
+        }
     })
 })
 
