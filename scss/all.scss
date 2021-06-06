@@ -8,9 +8,6 @@ $black: #333333;
     width: $w;
     height: $h;
 }
-* {
-    // border: solid 1px;
-}
 html {
     margin: 0;
     padding: 0;    
@@ -70,6 +67,7 @@ body {
                 margin: 0;
                 list-style: none;  
                 background-color: #fff;     
+                transition: 0.5s;
                 &:hover
                     .delete {
                         opacity: 1
@@ -88,9 +86,8 @@ body {
                     flex: 8;
                     font-size: 16px;
                     color: #333333;
-                    letter-spacing: 0.62px;
-                    // padding: 16px 0;
-                    // margin: 24px;                    
+                    letter-spacing: 0.62px;    
+                    transition: 0.5s;             
                 }
                 .delete {
                     @include center;
@@ -172,47 +169,7 @@ body {
     flex: 1;
     border-radius: 5px;
 }
-
-input[type='checkbox'] {
-    display: none;
-}
-
-input[type='checkbox']+label {
-/*設定選項與選項之間的距離*/
-    margin: 0 0px;
-    border-bottom: 3px solid black;
-}
-
-input[type='checkbox']+label::before {
-    content: "";
-    font-size: 30px;
-    float: left;          /*設定選項樣式的位置*/
-    width: 20px;          /*設定選項樣式的寬高*/
-    height: 20px;
-    background-color: #fff; 
-    border: 1px solid #333333;  /*設定選項樣式的邊框*/
-    border-radius: 5px;   /*設定選項樣式為圓圈*/
-    margin-right: 20px;    /*設定圓圈與文字之間的距離*/
-    margin-top: 3px;
-    box-sizing: border-box;
-}
-
-input[type='checkbox']:checked+label::before {
-    position: relative;
-    top: -10px;
-    content: "✔";
-    color: #FFD370;
-    border: none;
-    background-clip: content-box;    
-}
-
-.todo {
-    display: flex;
-    justify-content: flex-start;
-}
-
 label {
-    @include center;
     padding-bottom: 10px;
     cursor: pointer;
     margin-left: 30px;
@@ -220,5 +177,12 @@ label {
 }
 
 .decoration {
-    text-decoration:line-through
+    text-decoration:line-through;
+    color: rgba(51,51,51,0.30);
+    opacity: 0.5;
+}
+
+.delete_animation {
+    opacity: 0;
+    transform: translateX(90px);
 }
