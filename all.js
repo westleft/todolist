@@ -1,10 +1,10 @@
-let list = document.querySelector('.list');
-let main_btn = document.querySelector('.mian_btn');
+const main_btn = document.querySelector('.mian_btn');
 const rest = document.querySelector('.restbox')
+const save = document.querySelector('.save');
+const clear = document.querySelector('.clear')
 
-let save = document.querySelector('.save');
 let text_content = document.querySelector('.text');
-let clear = document.querySelector('.clear')
+let list = document.querySelector('.list');
 
 //建立todo清單(按enter)
 text_content.addEventListener('keydown', function (e) {
@@ -16,24 +16,40 @@ text_content.addEventListener('keydown', function (e) {
 //建立todo清單(按按鈕)
 save.addEventListener('click', addtodo)
 
+//check及label編號
+let labelNumber = 0
+
 //建立todo清單
 function addtodo() {
+    //禁止輸入空字串
+    if (text_content.value == '') {
+        return
+    }
+
     //建立li,裝所有東西的清單
     const todo_li = document.createElement('li');
-    todo_li.innerText = '';
+
+    //check及label編號
+    if (labelNumber === labelNumber) {
+        labelNumber += 1
+    }
 
     //建立完成按鈕,新增至li
     const completeButton = document.createElement('input');
     completeButton.type = 'checkbox'
     completeButton.innerHTML = '';
     completeButton.classList.add('check')
+    completeButton.setAttribute('id', labelNumber)
     todo_li.appendChild(completeButton);
 
     //建立代辦事項,新增至li (文字產生自此)
     var todoContent = document.createElement('label');
     todoContent.innerHTML = text_content.value;
     todoContent.classList.add('todo');
+    todoContent.setAttribute('for', labelNumber);
     todo_li.appendChild(todoContent);
+
+    // save_local(text_content.value)
 
     //建立刪除按鈕,新增至li
     const deleteButton = document.createElement('button');
@@ -65,11 +81,12 @@ list.addEventListener('click', function (e) {
 
     //點選刪除按鈕
     if (item.classList[0] === 'delete') {
-        const todo = item.parentElement;
+        const todo = item.parentElement;        
         todo.classList.add('delete_animation')
         // 先執行完CSS才刪除
         todo.addEventListener('transitionend', function () {
             todo.remove()
+            
             rest_item()
         })
     }
@@ -143,3 +160,4 @@ for (var i = 0; i < btn.length; i++) {
         this.classList.add('btn_active')
     }
 }
+

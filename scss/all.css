@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   margin: 0;
   padding: 0;
@@ -23,6 +24,12 @@ body {
   background-size: cover;
   margin: 0;
   padding: 20px;
+}
+
+h1 {
+  letter-spacing: 8.75px;
+  font-size: 48px;
+  color: #333333;
 }
 
 .container {
@@ -113,10 +120,6 @@ body {
   opacity: 1;
 }
 
-.container .main_list .list li:hover .delete_notyet {
-  opacity: 1;
-}
-
 .container .main_list .list li .check {
   width: 20px;
   height: 20px;
@@ -139,32 +142,6 @@ body {
 }
 
 .container .main_list .list li .delete {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 20px;
-  height: 20px;
-  border: none;
-  font-size: 16px;
-  font-weight: 600;
-  padding: 3px;
-  margin-bottom: 10px;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  background-color: #fff;
-  opacity: 0;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-}
-
-.container .main_list .list li .delete_notyet {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -257,6 +234,44 @@ body {
       -ms-flex: 1;
           flex: 1;
   border-radius: 5px;
+}
+
+input[type='checkbox'] {
+  display: none;
+}
+
+input[type='checkbox'] + label {
+  /*設定選項與選項之間的距離*/
+  margin: 30 0px;
+  border-bottom: 3px solid black;
+}
+
+input[type='checkbox'] + label::before {
+  width: 20px;
+  height: 20px;
+  content: "";
+  font-size: 30px;
+  float: left;
+  /*設定選項樣式的位置*/
+  background-color: #fff;
+  border: 1px solid #333333;
+  /*設定選項樣式的邊框*/
+  border-radius: 5px;
+  /*設定選項樣式為圓圈*/
+  margin-right: 20px;
+  /*設定圓圈與文字之間的距離*/
+  margin-top: 3px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+input[type='checkbox']:checked + label::before {
+  position: relative;
+  top: -10px;
+  content: "✔";
+  color: #FFD370;
+  border: none;
+  background-clip: content-box;
 }
 
 label {

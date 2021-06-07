@@ -22,6 +22,11 @@ body {
     margin: 0;
     padding: 20px;
 }
+h1 {
+    letter-spacing: 8.75px;
+    font-size: 48px;
+    color: $black;
+}
 .container{
     @include center;
     width: 500px;
@@ -47,8 +52,8 @@ body {
                 letter-spacing: 0.7px;
             }
             .btn_active {
-                border-bottom: 2px solid #333333;
-                color: #333333;
+                border-bottom: 2px solid $black;
+                color: $black;
             }
         }
         .list {            
@@ -72,10 +77,6 @@ body {
                     .delete {
                         opacity: 1
                     }
-                &:hover
-                    .delete_notyet{
-                        opacity: 1
-                    }
                 .check {
                     @include size(20px, 20px);
                     flex: 1;
@@ -85,24 +86,11 @@ body {
                     border-bottom: 1px solid #EFEFEF;
                     flex: 8;
                     font-size: 16px;
-                    color: #333333;
+                    color: $black;
                     letter-spacing: 0.62px;    
                     transition: 0.5s;             
                 }
                 .delete {
-                    @include center;
-                    @include size(20px,20px);                    
-                    border: none;
-                    font-size: 16px;
-                    font-weight: 600;
-                    padding: 3px;
-                    margin-bottom: 10px;
-                    flex: 1;
-                    background-color: #fff;
-                    opacity: 0;
-                    transition: 0.2s;
-                }
-                .delete_notyet {
                     @include center;
                     @include size(20px,20px);                    
                     border: none;
@@ -143,14 +131,13 @@ body {
             color: #FFFFFF;
             border: none; 
     }
-    
     }
     .footer {
         display: flex;
         justify-content: space-between;  
         .rest {
             font-size: 14px;
-            color: #333333;
+            color: $black;
             letter-spacing: 0.7px;
             padding: 24px 32px;
         }   
@@ -169,19 +156,45 @@ body {
     flex: 1;
     border-radius: 5px;
 }
+input[type='checkbox'] {
+    display: none;
+}
+input[type='checkbox']+label {
+/*設定選項與選項之間的距離*/
+    margin: 30 0px;
+    border-bottom: 3px solid black;
+}
+input[type='checkbox']+label::before {
+    @include size(20px,20px);
+    content: "";
+    font-size: 30px;
+    float: left;          /*設定選項樣式的位置*/
+    background-color: #fff; 
+    border: 1px solid #333333;  /*設定選項樣式的邊框*/
+    border-radius: 5px;   /*設定選項樣式為圓圈*/
+    margin-right: 20px;    /*設定圓圈與文字之間的距離*/
+    margin-top: 3px;
+    box-sizing: border-box;
+}
+input[type='checkbox']:checked+label::before {
+    position: relative;
+    top: -10px;
+    content: "✔";
+    color: #FFD370;
+    border: none;
+    background-clip: content-box;    
+}
 label {
     padding-bottom: 10px;
     cursor: pointer;
     margin-left: 30px;
     width: 100%;
 }
-
 .decoration {
     text-decoration:line-through;
     color: rgba(51,51,51,0.30);
     opacity: 0.5;
 }
-
 .delete_animation {
     opacity: 0;
     transform: translateX(90px);
