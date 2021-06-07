@@ -118,7 +118,7 @@ h1 {
             box-shadow: 0 0 15px 0 rgba(0,0,0,0.15);
             border-radius: 10px;
             border: none;
-            padding: 12px 375px 12px 24px;
+            padding: 12px 50px 12px 24px;
             outline: none;
         }
         .save {
@@ -160,25 +160,24 @@ input[type='checkbox'] {
     display: none;
 }
 input[type='checkbox']+label {
-/*設定選項與選項之間的距離*/
-    margin: 30 0px;
+    margin: 30 0px; /*設定選項與選項之間的距離*/
     border-bottom: 3px solid black;
 }
 input[type='checkbox']+label::before {
     @include size(20px,20px);
     content: "";
     font-size: 30px;
-    float: left;          /*設定選項樣式的位置*/
+    float: left;          
     background-color: #fff; 
     border: 1px solid #333333;  /*設定選項樣式的邊框*/
     border-radius: 5px;   /*設定選項樣式為圓圈*/
     margin-right: 20px;    /*設定圓圈與文字之間的距離*/
-    margin-top: 3px;
+    margin-top: 0px;
     box-sizing: border-box;
 }
 input[type='checkbox']:checked+label::before {
     position: relative;
-    top: -10px;
+    top: -12px;
     content: "✔";
     color: #FFD370;
     border: none;
