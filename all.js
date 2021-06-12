@@ -151,13 +151,12 @@ function rest_item() {
 }
 
 //導覽列亮燈
-var btn = document.querySelectorAll('.btn')
-for (var i = 0; i < btn.length; i++) {
+let btn = document.querySelectorAll('.btn')
+for (let i = 0; i < btn.length; i++) {
     btn[i].onclick = function () {
-        for (var i = 0; i < btn.length; i++) {
+        for (let i = 0; i < btn.length; i++) {
             btn[i].classList.remove('btn_active')
         }
         this.classList.add('btn_active')
     }
 }
-
