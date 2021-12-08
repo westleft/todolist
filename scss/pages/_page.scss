@@ -1,19 +1,11 @@
 $black: #333333;
-@mixin center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-@mixin size($w,$h) {
-    width: $w;
-    height: $h;
-}
+
 html {
     margin: 0;
     padding: 0;    
 }
 body {    
-    @include center;
+    @include flexCenter(center,center);
     background-attachment: fixed;
     flex-direction: column;
     background-image: linear-gradient(174deg, #FFD370 2%, #FFD370 46%, #FFFFFF 46%, #FFFFFF 100%, #E8E8E8 100%);
@@ -22,13 +14,15 @@ body {
     margin: 0;
     padding: 20px;
 }
+
 h1 {
     letter-spacing: 8.75px;
     font-size: 48px;
     color: $black;
 }
+
 .container{
-    @include center;
+    @include flexCenter(center,center);
     width: 500px;
     flex-direction: column;
     position: relative;
@@ -91,7 +85,7 @@ h1 {
                     transition: 0.5s;             
                 }
                 .delete {
-                    @include center;
+                    @include flexCenter(center,center);
                     @include size(20px,20px);                    
                     border: none;
                     font-size: 16px;
