@@ -58,7 +58,7 @@ h1 {
                 margin: 0;    
             }
             li {
-                @include size(100%, 50px);
+                @include size(50px, 100%);
                 display: flex;
                 align-items: center;
                 justify-content: center;
