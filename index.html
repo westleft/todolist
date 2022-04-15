@@ -1,38 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="Todolist" content="JavaScript Todolist"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="scss/main.css">
-</head>
-
-<body>
-    <h1>TODO LIST</h1>
-    <div class="container">
-        <div class="text_bar">
-            <input type="text" type="button" class="text" placeholder="新增代辦事項">
-            <input type="button" class="save" value="+">
-        </div>
-        <div class="main_list">
-            <div class="mian_btn">
-                <input type="button" value="全部" class="btn">
-                <input type="button" value="已完成" class="btn">
-                <input type="button" value="待完成" class="btn">
-            </div>           
-            <ul class="list"></ul>
-            <div class="footer">
-                <div class="restbox">
-                    <p class="rest">0個待完成項目</p>
-                </div>
-                <button class="clear" value="待完成">清除已完成項目</button>                
-            </div>
-        </div>      
-    </div>
-    <script src="all.js"></script>
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TodoList | 代辦事項</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+  <style>
+    html, body, #app {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+    #app {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-direction: column;
+      padding: 4% 0;
+      background-image: linear-gradient(174deg, #FFD370 2%, #FFD370 46%, #FFFFFF 46%, #FFFFFF 100%, #E8E8E8 100%);
+    }
+  </style>
 </html>
