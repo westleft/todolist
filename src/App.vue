@@ -86,7 +86,7 @@ const uncompleted = computed(() => {
 </script>
 
 <template>
-  <!-- <h1>TODO LIST</h1> -->
+  <h1>TODO LIST</h1>
   <div class="container">
     <div class="text_bar">
       <input
