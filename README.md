@@ -2,7 +2,10 @@
 
 [<img src="https://img.shields.io/badge/-Vite-646CFF?logo=Vite&logoColor=white&logoWidth=24" alt="vite勳章"/>](https://vitejs.dev/) [<img src="https://img.shields.io/badge/-Vue.js-4FC08D?logo=Vue.js&logoColor=white&logoWidth=24" alt="vue.js勳章"/>](https://vuejs.org/) [<img src="https://img.shields.io/badge/-Firebase-FFCA28?logo=Firebase&logoColor=white&logoWidth=24" alt="firebase勳章"/>](https://firebase.google.com/) 
 
-使用 Vue3 搭配 Google Friebase 實作簡易版 Todolist，並搭配 Vuex 完成。</br>
+<img src="https://i.imgur.com/LB2bk0O.jpg">
+
+
+使用 Vue3 搭配 Google Friebase 實作簡易版 Todolist，並配合 Vuex 完成。</br>
 設計稿為 [六角學院 2021 年公益活動](https://www.hexschool.com/2021/05/20/2021-05-20-covid-public-welfare/) 的版型，為了方便練習就直接拿來修改。</br>
 不過目前是使用免費方案，怕被玩爆這邊就不放上 DEMO 了 XD。
 
