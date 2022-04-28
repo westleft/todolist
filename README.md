@@ -2,7 +2,7 @@
 
 [<img src="https://img.shields.io/badge/-Vite-646CFF?logo=Vite&logoColor=white&logoWidth=24" alt="vite勳章"/>](https://vitejs.dev/) [<img src="https://img.shields.io/badge/-Vue.js-4FC08D?logo=Vue.js&logoColor=white&logoWidth=24" alt="vue.js勳章"/>](https://vuejs.org/) [<img src="https://img.shields.io/badge/-Firebase-FFCA28?logo=Firebase&logoColor=white&logoWidth=24" alt="firebase勳章"/>](https://firebase.google.com/) 
 
-<img src="https://i.imgur.com/LB2bk0O.jpg">
+<img src="https://i.imgur.com/bHXEcJz.jpg">
 
 
 使用 Vue3 搭配 Google Friebase 實作簡易版 Todolist，並配合 Vuex 完成。</br>
